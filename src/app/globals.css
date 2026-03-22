@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+/*
+ * StagParty.io — Dark Masculine Theme
+ * Dark navy/charcoal base with gold/amber accents
+ */
+
+@theme {
+  /* ── Base palette ─────────────────────────────────── */
+  --color-navy-950: #0a0e1a;
+  --color-navy-900: #0f1629;
+  --color-navy-800: #161d35;
+  --color-navy-700: #1e2744;
+  --color-navy-600: #2a3557;
+
+  --color-charcoal-900: #111318;
+  --color-charcoal-800: #1a1d24;
+  --color-charcoal-700: #24282f;
+  --color-charcoal-600: #2f343d;
+
+  /* ── Accent — gold / amber ────────────────────────── */
+  --color-gold-500: #d4a843;
+  --color-gold-400: #e4be5a;
+  --color-gold-300: #f0d278;
+  --color-gold-200: #f5e0a0;
+
+  --color-amber-500: #f59e0b;
+  --color-amber-400: #fbbf24;
+
+  /* ── Semantic tokens ──────────────────────────────── */
+  --color-surface: var(--color-navy-900);
+  --color-surface-raised: var(--color-navy-800);
+  --color-surface-overlay: var(--color-navy-700);
+  --color-border-default: var(--color-navy-600);
+  --color-accent: var(--color-gold-500);
+  --color-accent-hover: var(--color-gold-400);
+  --color-accent-muted: var(--color-gold-300);
+  --color-text-primary: #f1f1f4;
+  --color-text-secondary: #9ca3b4;
+  --color-text-muted: #636b7e;
+
+  /* ── Typography ────────────────────────────────────── */
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* ── Radius ────────────────────────────────────────── */
+  --radius-card: 1rem;
+  --radius-button: 0.625rem;
+  --radius-input: 0.5rem;
+}
+
+/* ── Base resets ───────────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+  border-color: var(--color-border-default);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--color-navy-950);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+}
+
+/* ── Selection highlight ───────────────────────────────── */
+
+::selection {
+  background: var(--color-gold-500);
+  color: var(--color-navy-950);
+}
+
+/* ── Focus ring utility ────────────────────────────────── */
+
+.focus-gold:focus-visible {
+  outline: 2px solid var(--color-gold-500);
+  outline-offset: 2px;
+}
+
+/* ── Gradient helpers ──────────────────────────────────── */
+
+.gradient-gold {
+  background: linear-gradient(135deg, var(--color-gold-500), var(--color-amber-500));
+}
+
+.gradient-gold-text {
+  background: linear-gradient(135deg, var(--color-gold-400), var(--color-amber-400));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Card glass effect ─────────────────────────────────── */
+
+.card-glass {
+  background: rgba(22, 29, 53, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(42, 53, 87, 0.5);
+}
+
+/* ── Glow accent ───────────────────────────────────────── */
+
+.glow-gold {
+  box-shadow: 0 0 20px rgba(212, 168, 67, 0.15), 0 0 60px rgba(212, 168, 67, 0.05);
+}
+
+/* ── Subtle animated shimmer for hero ──────────────────── */
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.shimmer-gold {
+  background: linear-gradient(
+    90deg,
+    var(--color-gold-500) 0%,
+    var(--color-gold-300) 50%,
+    var(--color-gold-500) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
